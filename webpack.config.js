@@ -21,16 +21,11 @@ module.exports = {
         }
       },
       {
-        test: /\.jpg|png|gif|woff|eot|ttf|svg|mp4|mp3|webm$/,
-        use: {
-          loader: 'url-loader', 
-          options: {
-            limit: 900000,
-          }
-        }
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(png|jpe?g|gif)$/i,
+        test: /\.(png|jpe?g|gif|woff|woff2)$/i,
         use: [
           {
             loader: 'file-loader',
@@ -48,7 +43,7 @@ module.exports = {
         }
     ),
     new CopyWebpackPlugin({
-        patterns: [{from:'./src/styles/styles.css', 
+        patterns: [{from:'./src/styles/styles.css',
             to: ''}],
     })
   ]

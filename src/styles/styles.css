@@ -1,8 +1,86 @@
+:root {
+  --color-primary: #4c2982;
+  --color-secondary: #f9d170;
+  --color-bg: #f9f7f3;
+  --color-text: #252525;
+  --color-light: #f3f3f3;
+  --color-success: #067973;
+  --color-success-bg: #f5fffe;
+  --color-error: #b71540;
+  --color-error-bg: #fdeff3;
+}
+
 @font-face {
   font-family: 'Inter';
-  font-style:  normal;
+  font-style: normal;
   font-weight: 900;
   font-display: swap;
-  src: url("Inter-Black.woff2?v=3.11") format("woff2"),
-       url("Inter-Black.woff?v=3.11") format("woff");
+  src: url('Inter-Black.woff2?v=3.11') format('woff2'),
+    url('Inter-Black.woff?v=3.11') format('woff');
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+}
+
+.Main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Main-content-title {
+  color: var(--color-primary);
+  font-family: 'Inter';
+  font-size: 32px;
+}
+
+.Main-content-subtitle {
+  color: var(--color-primary);
+  font-family: 'Inter';
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+.Main-form {
+  display: flex;
+  box-shadow: 0 0 17px rgba(0,0,0,.08), 0 2px 17px rgba(0,0,0,.12);}
+
+.Main-form-email {
+  width: 250px;
+  height: 35px;
+  margin: 0;
+  padding: 0 1em;
+  border: none;
+}
+
+.Main-form-email::placeholder {
+  font-family: inter;
+}
+
+.Main-form-email:focus {
+  padding: 0 1em;
+  border: 1px solid var(--color-primary);
+}
+
+.Main-form-email:invalid {
+  box-shadow: none;
+}
+
+.Main-form-button {
+  border-radius: 0;
+  width: 37px;
+  height: 37px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: var(--color-secondary);
+}
+
+.fa-arrow-right {
+  color: var(--color-primary);
 }
