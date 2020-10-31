@@ -1,18 +1,7 @@
+import validData from './components/validData';
+import invalidData from './components/invalidData';
 import './styles/styles.css';
 
-const invalidData = `
-  <article class="Warn-invalid-content">
-    <span>
-      <figure class="Warn-invalid-figure">
-        <img src="../src/assets/images/alert-triangle.svg" alt="">
-      </figure>
-      <h3 class="Warn-invalid-title">
-        Please use valid email
-      </h3>
-    </span>
-    <p class="Warn-invalid-inf">Like: person@inbox.com</p>
-  </article>
-`;
 
 const warn = document.createElement('section');
 warn.id = 'warn';
@@ -22,31 +11,45 @@ const confirm = document.createElement('section');
 confirm.id = 'confirm';
 confirm.className = 'Confirm-valid-container';
 
-const validData = `
-<article class="Confirm-valid-content">
-  <span>
-    <figure class="Confirm-valid-figure">
-      <img src="../src/assets/images/check.svg" alt="">
-    </figure>
-    <h3 class="Confirm-valid-title">Yay! Thank you</h3>
-  </span>
-  <p class="Confirm-valid-inf">We've sent a confirmation link <br> to yout inbox</p>
-</article>
-`;
-
 const form = document.getElementById('form');
-const getWarnElement = document.getElementById('warn')
 const mainContent = document.getElementById('main-content');
+
+
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
 
+  const main = document.getElementById('main');
   const mainContent = document.getElementById('main-content');
   const email = document.getElementById('email').value;
+
+  const data = { "username": email };
   if (email.includes('@')) {
     confirm.innerHTML = validData;
     mainContent.appendChild(confirm);
-    location = '/confirm'
+    console.log(email);
+    // fetch('http://localhost:3001/user-email', {
+    //   method: 'POST',
+    //   body: JSON.stringify(data),
+    //   headers:{
+    //     'Content-Type': 'application/json'
+    //   }
+    // })
+    //   .then((res) => res.json())
+    //   .catch((error) => console.error('Error', error))
+    //   .then((response) => console.log('Success:', response))
+    //   .then((require) => console.log('Require', require));
+    location = '#/confirm'
+
+    if (location.hash === '#/confirm') {
+      mainContent.remove();
+      const section = document.createElement('section');
+      section.className = 'Confirm-valid-container';
+
+      section.innerHTML = validData
+      main.appendChild(section);
+    }
+
     console.log(location);
   } else {
     confirm.remove();
@@ -54,15 +57,14 @@ form.addEventListener('submit', (e) => {
   console.log(e);
 });
 
-
 const email = document
   .getElementById('email')
   .addEventListener('input', (e) => {
     const input = e.target.value;
     console.log('input', input);
-    const getWarnElement = document.getElementById('warn')
+    const getWarnElement = document.getElementById('warn');
 
-    if (!input.includes('@')) {
+    if (input.length > 10 && !input.includes('@')) {
       warn.innerHTML = invalidData;
       mainContent.appendChild(warn);
       confirm.remove();

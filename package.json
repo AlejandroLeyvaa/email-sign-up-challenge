@@ -7,7 +7,7 @@
     "build": "webpack --mode production",
     "dev": "webpack-dev-server --open --mode development"
   },
-  "author": "",
+  "author": "alejandro Leyvaa",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.12.3",
