@@ -19,10 +19,14 @@
     url('Inter-Black.woff?v=3.11') format('woff');
 }
 
-body {
+body, span {
   margin: 0;
   padding: 0;
   box-sizing: 0;
+}
+
+body {
+  background-color: var(--color-light);
 }
 
 .Main {
@@ -31,6 +35,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.Main-content {
+  margin-bottom: 15em;
 }
 
 .Main-content-title {
@@ -48,10 +56,11 @@ body {
 
 .Main-form {
   display: flex;
-  box-shadow: 0 0 17px rgba(0,0,0,.08), 0 2px 17px rgba(0,0,0,.12);}
-
+  width: 400px;
+  box-shadow: 0 0 17px rgba(0, 0, 0, 0.08), 0 2px 17px rgba(0, 0, 0, 0.12);
+}
 .Main-form-email {
-  width: 250px;
+  width: 85%;
   height: 35px;
   margin: 0;
   padding: 0 1em;
@@ -72,13 +81,102 @@ body {
 }
 
 .Main-form-button {
+  background-color: var(--color-secondary);
   border-radius: 0;
   width: 37px;
   height: 37px;
   margin: 0;
   padding: 0;
   border: none;
-  background-color: var(--color-secondary);
+}
+
+.Main-form-button:hover {
+  border: 1px solid var(--color-primary);
+}
+
+.Main-form-button:focus {
+  border: 1px solid var(--color-primary);
+}
+
+.Warn-invalid-container {
+  background-color: var(--color-error-bg);
+  border: 1px solid var(--color-error);
+  margin: 1em 0;
+  padding: 1em;
+}
+
+.Warn-invalid-container span {
+  display: flex;
+  align-items: center;
+}
+
+.Warn-invalid-figure {
+  margin: 0 0.5em;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+}
+
+.Warn-invalid-figure img {
+  width: 32px;
+  margin: 0;
+  padding: 0;
+}
+
+.Warn-invalid-title {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-family: 'Inter';
+  color: var(--color-error);
+}
+
+.Warn-invalid-inf {
+  margin: 0 3em;
+  color: var(--color-error);
+  font-family: 'Inter';
+  font-weight: 300;
+}
+
+.Confirm-valid-container {
+  background-color: var(--color-success-bg);
+  border: 1px solid var(--color-success);
+  width: 400px;
+  margin: 1em 0;
+  padding: 1em;
+}
+
+.Confirm-valid-container span {
+  display: flex;
+  align-items: center;
+}
+
+.Confirm-valid-figure {
+  margin: 0 0.5em;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+}
+
+.Confirm-valid-figure img {
+  width: 32px;
+  margin: 0;
+  padding: 0;
+}
+
+.Confirm-valid-title {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-family: 'Inter';
+  color: var(--color-success);
+}
+
+.Confirm-valid-inf {
+  margin: 0 3em;
+  color: var(--color-success);
+  font-family: 'Inter';
+  font-weight: 300;
 }
 
 .fa-arrow-right {
